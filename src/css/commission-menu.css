@@ -1,0 +1,268 @@
+.commission-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    margin-bottom: 40px;
+}
+
+.commission-header h3 {
+    margin-top: 12px;
+    max-width: 700px;
+    color: rgba(245, 243, 255, 0.6);
+    font-size: 0.9rem;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+.commission-kicker {
+    color: #cfc8ff;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.commission-back {
+    padding: 14px 34px;
+
+    border-radius: 12px;
+    border: 1px solid rgba(146, 122, 217, 0.45);
+
+    background: transparent;
+    color: #f5f3ff;
+
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.commission-back:hover {
+    border-color: #927ad9;
+    box-shadow: 0 0 18px rgba(146, 122, 217, 0.35);
+    transform: translateY(-2px);
+}
+
+.commission-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 400px));
+    gap: 18px;
+    justify-content: center;
+}
+
+.commission-card {
+    position: relative;
+    min-height: 440px;
+    padding: 0;
+    overflow: hidden;
+
+    border-radius: 18px;
+    border: 1px solid rgba(146, 122, 217, 0.55);
+
+    background: #2b2947;
+
+    box-shadow:
+        0 18px 40px rgba(0, 0, 0, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+
+    animation: cardRise 0.45s ease forwards;
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.commission-card:hover {
+    transform: translateY(-8px);
+
+    border-color: #927ad9;
+
+    box-shadow:
+        0 0 35px rgba(146, 122, 217, 0.35),
+        0 18px 50px rgba(0, 0, 0, 0.45);
+}
+
+.commission-card-img {
+    width: 100%;
+    height: 100%;
+    min-height: 440px;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition:
+        transform 0.55s ease,
+        filter 0.55s ease;
+}
+
+.commission-card:hover .commission-card-img {
+    transform: scale(1.06);
+    filter: brightness(1.08);
+}
+
+.commission-overlay {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    background: linear-gradient(
+        to top,
+        rgba(18, 18, 28, 0.98) 0%,
+        rgba(18, 18, 28, 0.92) 40%,
+        rgba(18, 18, 28, 0.15) 100%
+    );
+
+    border-top: 1px solid rgba(146, 122, 217, 0.45);
+
+    backdrop-filter: blur(8px);
+}
+
+.commission-title {
+    padding: 14px 16px 10px;
+}
+
+.commission-title h3 {
+    margin: 0 0 4px;
+    color: #f5f3ff;
+    font-size: 1.7rem;
+}
+
+.commission-title p {
+    margin: 0;
+    color: rgba(245, 243, 255, 0.72);
+    font-size: 0.9rem;
+}
+
+.commission-price-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    border-top: 1px solid rgba(146, 122, 217, 0.35);
+}
+
+.price-segment {
+    padding: 8px 6px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+
+    text-align: center;
+}
+
+.price-segment:not(:last-child) {
+    border-right: 1px solid rgba(146, 122, 217, 0.35);
+}
+
+.price-segment span {
+    color: rgba(245, 243, 255, 0.68);
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+}
+
+.price-segment strong {
+    color: #f5f3ff;
+    font-size: 1rem;
+}
+
+.commission-card.featured {
+    border-color: #927ad9;
+    box-shadow:
+        0 0 28px rgba(146, 122, 217, 0.35),
+        0 18px 40px rgba(0, 0, 0, 0.35);
+}
+
+.commission-card h3 {
+    margin-bottom: 12px;
+    color: #f5f3ff;
+    font-size: 1.6rem;
+}
+
+.commission-card p {
+    margin-bottom: 20px;
+    color: rgba(245, 243, 255, 0.74);
+    line-height: 1.6;
+}
+
+.commission-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.commission-card li {
+    padding: 10px 0;
+    color: #cfc8ff;
+    border-bottom: 1px solid rgba(146, 122, 217, 0.18);
+}
+
+.commission-footer {
+    margin-top: 48px;
+    padding-top: 28px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+
+    border-top: 1px solid rgba(146, 122, 217, 0.18);
+}
+
+.social-links {
+    display: flex;
+    gap: 18px;
+    justify-content: center;
+}
+
+@keyframes menuExpand {
+    from {
+        opacity: 0;
+        transform: scaleY(0.88) translateY(-18px);
+        transform-origin: top;
+    }
+
+    to {
+        opacity: 1;
+        transform: scaleY(1) translateY(0);
+        transform-origin: top;
+    }
+}
+
+@keyframes cardRise {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 900px) {
+    .commission-section {
+        padding-top: 180px;
+    }
+
+    .commission-panel {
+        padding: 34px 24px;
+    }
+
+    .commission-grid {
+        grid-template-columns: 1fr;
+    }
+}
