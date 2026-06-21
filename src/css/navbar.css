@@ -28,6 +28,14 @@
     z-index: 1000;
 }
 
+.nav-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 100%;
+}
+
 .nav-logo {
     justify-self: start;
     display: inline-flex;
@@ -56,6 +64,15 @@
 }
 
 .nav-link {
+    appearance: none;
+    -webkit-appearance: none;
+
+    background: transparent;
+    border: 1px solid transparent;
+    outline: none;
+
+    cursor: pointer;
+
     position: relative;
 
     padding: 14px 22px;
@@ -65,10 +82,10 @@
 
     font-size: 13px;
     font-weight: 800;
+    font-family: inherit;
     letter-spacing: 1.5px;
     text-transform: uppercase;
 
-    border: 1px solid transparent;
     border-radius: 8px;
 
     transition:
@@ -119,6 +136,11 @@
     box-shadow:
         0 0 18px rgba(146, 122, 217, 0.28),
         inset 0 0 18px rgba(146, 122, 217, 0.12);
+}
+
+.nav-link:focus-visible {
+    outline: 2px solid #927AD9;
+    outline-offset: 3px;
 }
 
 @media (max-width: 860px) {

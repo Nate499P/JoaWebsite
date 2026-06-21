@@ -4,15 +4,14 @@ import "../css/hero.css";
 import Buttons from "./Buttons";
 import CommissionMenu from "./CommissionMenu";
 
-export default function Hero() {
-    const [view, setView] = useState("hero");
+export default function Hero({ heroView, setHeroView }) {
     const [isFading, setIsFading] = useState(false);
 
     function openCommissions() {
         setIsFading(true);
 
         setTimeout(() => {
-            setView("commissions");
+            setHeroView("commissions");
             setIsFading(false);
         }, 450);
     }
@@ -21,7 +20,7 @@ export default function Hero() {
         setIsFading(true);
 
         setTimeout(() => {
-            setView("hero");
+            setHeroView("hero");
             setIsFading(false);
         }, 450);
     }
@@ -30,7 +29,7 @@ export default function Hero() {
         <section className="hero-section" id="home">
             <div className="hero-panel">
                 <div className={`hero-view ${isFading ? "is-fading" : "fade-in"}`}>
-                    {view === "hero" ? (
+                    {heroView === "hero" ? (
                         <div className="hero-layout">
                             <div className="hero-content">
                                 <p className="hero-kicker">Joa Commission Site!</p>
@@ -41,9 +40,9 @@ export default function Hero() {
                                 </h1>
 
                                 <p className="hero-description">
-                                    Below you'll find my different rates, offers, and services.
-                                    If you have any questions, feel free to reach out to me via
-                                    the contact form below!
+                                    Below you'll find my different rates, offers, and services. If
+                                    you have any questions, feel free to reach out to me via the
+                                    contact form below!
                                 </p>
 
                                 <Buttons onOpenCommissions={openCommissions} />

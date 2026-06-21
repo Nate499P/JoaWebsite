@@ -1,34 +1,30 @@
-import { useState } from "react";
 import "../css/navbar.css";
 
-export default function Navbar() {
-    const [active, setActive] = useState("Home");
-
-    const links = [
-        { label: "Home", href: "#" },
-        { label: "Projects", href: "#projects" },
-        { label: "About", href: "#about" },
-        { label: "Contact", href: "#contact" }
-    ];
-
+export default function Navbar({ setHeroView }) {
     return (
         <nav className="navbar">
-            <a href="#" className="nav-logo">
-                <img src="./public/images/Joa_logo2.png" alt="Logo" />
-            </a>
-
+            {/* LEFT */}
             <div className="nav-links">
-                {links.map((link) => (
-                    <a
-                        key={link.label}
-                        href={link.href}
-                        className={`nav-link ${active === link.label ? "active" : ""}`}
-                        onClick={() => setActive(link.label)}
-                    >
-                        {link.label}
-                    </a>
-                ))}
+                <button
+                    className="nav-link"
+                    onClick={() => {
+                        setHeroView("hero");
+
+                        document.getElementById("home")?.scrollIntoView({
+                            behavior: "smooth"
+                        });
+                    }}>
+                    HOME
+                </button>
             </div>
+
+            {/* CENTER */}
+            <div className="nav-center">{/* Empty for now */}</div>
+
+            {/* RIGHT */}
+            <a href="/" className="nav-logo">
+                <img src="/images/Joa_Logo2.png" alt="Joa Logo" />
+            </a>
         </nav>
     );
 }
