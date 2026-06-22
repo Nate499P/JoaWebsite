@@ -1,9 +1,9 @@
 import { useState } from "react";
 import "../css/hero.css";
 
-import Buttons from "./Buttons";
-import CommissionMenu from "./CommissionMenu";
-import Contact from "./Contact";
+import Buttons from "./buttons";
+import CommissionMenu from "./commissionMenu";
+import Contact from "./contact";
 
 export default function Hero({ heroView, setHeroView }) {
     const [isFading, setIsFading] = useState(false);
