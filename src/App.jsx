@@ -1,8 +1,8 @@
 import { useState } from "react";
 import "./App.css";
 
-import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
+import Navbar from "./components/navbar";
+import Hero from "./components/hero";
 
 function App() {
     const [heroView, setHeroView] = useState("hero");
