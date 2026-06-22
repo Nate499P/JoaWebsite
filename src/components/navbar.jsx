@@ -1,6 +1,17 @@
 import "../css/navbar.css";
 
-export default function Navbar({ setHeroView }) {
+const icons = [
+    "/images/poro1.png",
+    "/images/poro2.png",
+    "/images/poro3.png",
+    "/images/poro4.png",
+    "/images/poro5.png",
+    "/images/poro6.png"
+];
+
+const repeatedImages = [...icons, ...icons, ...icons, ...icons];
+
+export default function Navbar({ returnHome }) {
     return (
         <nav className="navbar">
             {/* LEFT */}
@@ -8,7 +19,7 @@ export default function Navbar({ setHeroView }) {
                 <button
                     className="nav-link"
                     onClick={() => {
-                        setHeroView("hero");
+                        returnHome();
 
                         document.getElementById("home")?.scrollIntoView({
                             behavior: "smooth"
@@ -19,7 +30,24 @@ export default function Navbar({ setHeroView }) {
             </div>
 
             {/* CENTER */}
-            <div className="nav-center">{/* Empty for now */}</div>
+            <div className="nav-center">
+                <div className="nav-image-track">
+                    {[...Array(2)].map((_, groupIndex) => (
+                        <div className="nav-image-group" key={groupIndex}>
+                            {[...Array(6)].flatMap(() =>
+                                repeatedImages.map((src, index) => (
+                                    <img
+                                        key={`${groupIndex}-${index}-${src}`}
+                                        src={src}
+                                        alt=""
+                                        className="nav-image"
+                                    />
+                                ))
+                            )}
+                        </div>
+                    ))}
+                </div>
+            </div>
 
             {/* RIGHT */}
             <a href="/" className="nav-logo">

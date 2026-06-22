@@ -3,6 +3,7 @@ import "../css/hero.css";
 
 import Buttons from "./Buttons";
 import CommissionMenu from "./CommissionMenu";
+import Contact from "./Contact";
 
 export default function Hero({ heroView, setHeroView }) {
     const [isFading, setIsFading] = useState(false);
@@ -12,8 +13,23 @@ export default function Hero({ heroView, setHeroView }) {
 
         setTimeout(() => {
             setHeroView("commissions");
-            setIsFading(false);
-        }, 450);
+
+            setTimeout(() => {
+                setIsFading(false);
+            }, 120);
+        }, 600);
+    }
+
+    function openContact() {
+        setIsFading(true);
+
+        setTimeout(() => {
+            setHeroView("contact");
+
+            setTimeout(() => {
+                setIsFading(false);
+            }, 150);
+        }, 800);
     }
 
     function backToHero() {
@@ -21,15 +37,19 @@ export default function Hero({ heroView, setHeroView }) {
 
         setTimeout(() => {
             setHeroView("hero");
-            setIsFading(false);
-        }, 450);
+
+            setTimeout(() => {
+                setIsFading(false);
+            }, 150);
+        }, 800);
     }
 
     return (
         <section className="hero-section" id="home">
             <div className="hero-panel">
-                <div className={`hero-view ${isFading ? "is-fading" : "fade-in"}`}>
-                    {heroView === "hero" ? (
+                <div
+                    className={`hero-view ${isFading || heroView === "transition-home" ? "is-fading" : "fade-in"}`}>
+                    {heroView === "hero" && (
                         <div className="hero-layout">
                             <div className="hero-content">
                                 <p className="hero-kicker">Joa Commission Site!</p>
@@ -45,7 +65,10 @@ export default function Hero({ heroView, setHeroView }) {
                                     contact form below!
                                 </p>
 
-                                <Buttons onOpenCommissions={openCommissions} />
+                                <Buttons
+                                    onOpenCommissions={openCommissions}
+                                    onOpenContact={openContact}
+                                />
                             </div>
 
                             <div className="hero-display">
@@ -67,9 +90,11 @@ export default function Hero({ heroView, setHeroView }) {
                                 </div>
                             </div>
                         </div>
-                    ) : (
-                        <CommissionMenu onBack={backToHero} />
                     )}
+
+                    {heroView === "commissions" && <CommissionMenu onBack={backToHero} />}
+
+                    {heroView === "contact" && <Contact onBack={backToHero} />}
                 </div>
             </div>
         </section>

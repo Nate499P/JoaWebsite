@@ -164,37 +164,37 @@
 }
 
 .hero-view.fade-in {
-    animation: fadeInView 0.65s ease forwards;
+    animation: fadeInView .85s cubic-bezier(.22,1,.36,1) forwards;
 }
 
 .hero-view.is-fading {
-    animation: fadeOutView 0.45s ease forwards;
+    animation: fadeOutView 0.6s cubic-bezier(.25,.8,.25,1) forwards;
 }
 
 @keyframes fadeOutView {
     from {
         opacity: 1;
-        transform: translateY(0);
+        transform: scale(1);
         filter: blur(0);
     }
 
     to {
         opacity: 0;
-        transform: translateY(12px);
-        filter: blur(4px);
+        transform: scale(.985);
+        filter: blur(6px);
     }
 }
 
 @keyframes fadeInView {
     from {
         opacity: 0;
-        transform: translateY(14px);
-        filter: blur(4px);
+        transform: scale(.985);
+        filter: blur(6px);
     }
 
     to {
         opacity: 1;
-        transform: translateY(0);
+        transform: scale(1);
         filter: blur(0);
     }
 }

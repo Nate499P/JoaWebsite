@@ -7,15 +7,20 @@ import Hero from "./components/Hero";
 function App() {
     const [heroView, setHeroView] = useState("hero");
 
+    function returnHome() {
+        setHeroView("transition-home");
+
+        setTimeout(() => {
+            setHeroView("hero");
+        }, 450);
+    }
+
     return (
         <>
-            <Navbar setHeroView={setHeroView} />
+            <Navbar returnHome={returnHome} />
 
             <main>
-                <Hero
-                    heroView={heroView}
-                    setHeroView={setHeroView}
-                />
+                <Hero heroView={heroView} setHeroView={setHeroView} />
             </main>
         </>
     );

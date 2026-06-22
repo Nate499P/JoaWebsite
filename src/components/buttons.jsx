@@ -1,18 +1,15 @@
 import "../css/buttons.css";
 
-export default function Buttons({ onOpenCommissions }) {
+export default function Buttons({ onOpenCommissions, onOpenContact }) {
     return (
         <div className="hero-actions">
-            <button
-                className="hero-btn primary"
-                onClick={onOpenCommissions}
-            >
+            <button className="hero-btn primary" onClick={onOpenCommissions}>
                 View Commission Prices
             </button>
 
-            <a href="#contact" className="hero-btn secondary">
+            <button className="hero-btn secondary" onClick={onOpenContact}>
                 Contact Me
-            </a>
+            </button>
         </div>
     );
 }
