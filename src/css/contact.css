@@ -82,6 +82,33 @@
     font-size: 1.1rem;
 }
 
+.contact-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+}
+
+.contact-icon {
+    width: 20px;
+    height: 20px;
+
+    object-fit: contain;
+
+    opacity: .9;
+
+    transition:
+        transform .25s ease,
+        opacity .25s ease;
+}
+
+.contact-card:hover .contact-icon {
+    transform: scale(1.15);
+
+    opacity: 1;
+}
+
 .contact-footer {
     margin-top: 48px;
     padding-top: 28px;
